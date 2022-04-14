@@ -1,0 +1,16 @@
+[Unit] 
+Description=Example .NET Web Application running on RedHat
+
+[Service] 
+WorkingDirectory=/var/bulk/BulkService/
+ExecStart=/usr/bin/dotnet /var/bulk/BulkService/BulkService.dll
+Restart=always 
+RestartSec=10
+SyslogIdentifier=dotnet-example
+Environment=ASPNETCORE_ENVIRONMENT=Production 
+Environment=DOTNET_PRINT_TELEMETRY_MESSAGE=false
+User=root
+
+[Install] 
+WantedBy=multi-user.target
+
